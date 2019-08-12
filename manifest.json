@@ -3,7 +3,9 @@
   "version": "0.1",
   "description": "An extension that intelligently tunes your playback preference",
   "permissions": [
-    "webNavigation", "tabs"
+    "webNavigation", 
+    "tabs", 
+    "https://us-central1-speedo-249504.cloudfunctions.net/*"
   ],
   "background": {
     "scripts": ["background.js"],
@@ -12,7 +14,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
-      "js": ["capture.js"]
+      "js": ["content_script.js"]
     }
   ],
   "manifest_version": 2

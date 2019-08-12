@@ -1,0 +1,27 @@
+{
+  "name": "speedo-backend",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "functions-framework --target=recordPlaybackRate",
+    "test": "mocha test/*.test.js --timeout=20000",
+    "deploy": "gcloud functions deploy recordPlaybackRate --runtime nodejs8 --trigger-http"
+  },
+  "dependencies": {
+    "@google-cloud/bigquery": "^4.1.8"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "^3.3.0",
+    "@google-cloud/functions-framework": "^1.2.1",
+    "mocha": "^6.0.0",
+    "proxyquire": "^2.1.0",
+    "sinon": "^7.2.7"
+  },
+  "cloud-repo-tools": {
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+  }
+}

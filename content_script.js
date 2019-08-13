@@ -74,6 +74,7 @@ function _phoneHome(endpoint, data) {
     },
     redirect: 'follow',
     })
+  .then(console.log(`Successfully phoned home to Speedo with paylod ${JSON.stringify(data)}`))
   .catch(err => console.log(`Encountered error while phoning home to Speedo: ${err}`));   
 }
 

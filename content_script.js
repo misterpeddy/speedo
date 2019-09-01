@@ -48,10 +48,13 @@ function _computeFeatures() {
     } 
     */
     // Capture all other features
+    var titleEl = document.querySelector("h1.title yt-formatted-string");
+    var channelEl = document.querySelector("ytd-video-owner-renderer #channel-name .yt-formatted-string");
+    var descEl = document.querySelector("div#description .content ");
     return {
-      title : document.querySelector("h1.title yt-formatted-string").innerText,
-      channel : document.querySelector("#owner-name .yt-formatted-string").innerText, 
-      description : document.querySelector("div#description .content ").innerText,
+      title : titleEl ? titleEl.innerText : "",
+      channel : channelEl ? channelEl.innerText : "",
+      description : descEl ? descEl.innerText : "",
     }
   }
   catch (error) {

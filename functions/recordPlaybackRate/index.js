@@ -10,7 +10,7 @@ const table = dataset.table('playback_rate');
 
 /**
  * Receives a playback rate event and logs it to BigQuery.
- * Expects request body to contain rate and features{title}.
+ * Expects request body to contain rate and features.
  *
  * @param {Object} req Cloud Function request context.
  * @param {Object} res Cloud Function response context.
@@ -18,7 +18,7 @@ const table = dataset.table('playback_rate');
 exports.recordPlaybackRate = (req, res) => {
   let features = req.body.features;
   let rate = req.body.playback_rate;  
-  console.log(`Received request with features ${features} and rate ${rate}`)
+  console.log(`Received recordPlaybackRate request with features ${features} and rate ${rate}`);
   
   if (rate == undefined || 
       features == undefined || 
@@ -27,7 +27,7 @@ exports.recordPlaybackRate = (req, res) => {
       features.channel == undefined) {
     return res
       .status(422)
-      .json({'status': 'error', 'message': 'Required parameters (features{title, description, channel}, playback_rate) not present.'})
+      .json({'status': 'error', 'message': 'Required parameters (features{title, description, channel}, playback_rate) not present.'});
   }
 
   let rows = [
@@ -53,5 +53,22 @@ exports.recordPlaybackRate = (req, res) => {
       .status(500)
       .send(`Error writing to database: ${err}\n`);
   });
+
+};
+
+/**
+ * Recommends a video playback rate for features received.
+ * Expects request body to contain features.
+ *
+ * @param {Object} req Cloud Function request context.
+ * @param {Object} res Cloud Function response context.
+ */
+exports.recommendPlaybackRate = (req, res) => {
+  let features = req.body.features;
+  console.log(`Received request with features ${features}`);
+  
+  res
+    .json({'playback_rate': 1.0})
+    .status(200);
 
 };

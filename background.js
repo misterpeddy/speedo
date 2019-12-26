@@ -7,6 +7,7 @@ chrome.runtime.onInstalled.addListener(function() {
   console.log("Extension installed");
 });
 
+// Add Listener for navigations to Youtube watch pages
 chrome.tabs.onUpdated.addListener(function
   (tabId, changeInfo, tab) {
     if (changeInfo.url && changeInfo.url.startsWith(SITE_PREFIX)) {

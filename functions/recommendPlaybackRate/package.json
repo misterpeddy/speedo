@@ -6,9 +6,9 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "start": "functions-framework --target=recordPlaybackRate",
+    "start": "functions-framework --target=recommendPlaybackRate",
     "test": "mocha test/*.test.js --timeout=20000",
-    "deploy": "gcloud functions deploy recordPlaybackRate --runtime nodejs8 --trigger-http"
+    "deploy": "gcloud functions deploy recommendPlaybackRate --runtime nodejs8 --trigger-http"
   },
   "dependencies": {
     "@google-cloud/bigquery": "^4.1.8"

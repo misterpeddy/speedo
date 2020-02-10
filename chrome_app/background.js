@@ -1,4 +1,4 @@
-	'use strict';
+'use strict';
 
 const ACTION_CAPTURE_PLAYBACK_RATE = 'action_capture_playback_rate';
 const SITE_PREFIX = 'https://www.youtube.com/watch';

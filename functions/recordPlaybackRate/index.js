@@ -55,20 +55,3 @@ exports.recordPlaybackRate = (req, res) => {
   });
 
 };
-
-/**
- * Recommends a video playback rate for features received.
- * Expects request body to contain features.
- *
- * @param {Object} req Cloud Function request context.
- * @param {Object} res Cloud Function response context.
- */
-exports.recommendPlaybackRate = (req, res) => {
-  let features = req.body.features;
-  console.log(`Received request with features ${features}`);
-  
-  res
-    .json({'playback_rate': 1.0})
-    .status(200);
-
-};

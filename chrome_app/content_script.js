@@ -46,6 +46,8 @@ function handlePlaybackRateCapture(request, sender, sendResponse) {
   }, CAPTURE_PLAYBACK_RATE_DELAY_MS);
 }
 
+/********* Internal Utilities **********/
+
 function _getRecommendedPlaybackRate() {
   var url = BASE_URL + "recommendPlaybackRate";
   var features = _getFeatures();

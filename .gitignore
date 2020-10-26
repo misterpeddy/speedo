@@ -1,3 +1,6 @@
 functions/*/node_modules
 **/.DS_STORE
 manifest.json
+**/*_sa.json
+learning/tfx/metadata/*
+learning/tfx/pipelines/*
